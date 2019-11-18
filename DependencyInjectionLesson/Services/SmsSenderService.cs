@@ -7,19 +7,18 @@ using Twilio.Rest.Api.V2010.Account;
 
 namespace DependencyInjectionLesson.Services
 {
-    public class SmsSenderService
+    public class SmsSenderService : ISmsSenderService
     {
         public Task SendSms(string phoneNumber)
         {
-            const string accountSid = "ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
-            const string authToken = "your_auth_token";
+            const string accountSid = "AC3fbf63191267f4b50067a585825e4294";
+            const string authToken = "4ade5aaa6abfc741eeb674bb70bd9ea5";
 
             TwilioClient.Init(accountSid, authToken);
-            // не за что (с)сосед слева
             return MessageResource.CreateAsync(
-                body: "This is the ship that made the Kessel Run in fourteen parsecs?",
+                body: "Hello from Ruslan ;)",
                 from: new Twilio.Types.PhoneNumber("+15017122661"),
-                to: new Twilio.Types.PhoneNumber("+15558675310")
+                to: new Twilio.Types.PhoneNumber(phoneNumber)
             );
         }
     }

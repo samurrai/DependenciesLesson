@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DependencyInjectionLesson.Services
 {
-    public class EmailSenderService
+    public class EmailSenderService : IEmailSenderService
     {
         public Task SendEmail(EmailMessageDTO emailMessage)
         {

@@ -33,6 +33,7 @@ namespace DependencyInjectionLesson.Controllers
         public async Task<IActionResult> SendEmail(EmailMessageDTO emailMessage)
         {
             var emailService = new EmailSenderService();
+            await emailService.SendEmail(emailMessage);
             return Ok();
         }
         [HttpGet("{phoneNumber}")]
